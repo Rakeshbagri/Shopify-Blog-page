@@ -1,0 +1,461 @@
+{
+    "name": "blog author",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "heading",
+        "default": "Blogger section"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk1",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img1",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title1",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag1",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post1",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description1",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk2",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img2",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title2",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag2",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post2",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description2",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk3",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img3",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title3",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag3",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post3",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description3",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk4",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img4",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title4",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag4",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post4",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description4",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk5",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img5",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title5",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag5",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post5",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description5",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk6",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img6",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title6",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag6",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post6",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description6",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk7",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img7",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title7",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag7",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post7",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description7",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk8",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img8",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title8",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag8",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post8",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description8",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk9",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img9",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title9",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag9",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post9",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description9",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk10",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img10",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title10",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag10",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post10",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description10",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk11",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img11",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title11",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag11",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post11",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description11",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk12",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img12",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title12",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag12",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post12",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description12",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk13",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img13",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title13",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag13",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post13",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description13",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk14",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img14",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title14",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag14",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post14",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description14",
+        "label": "Author description"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_chk15",
+        "label": "Enable blog author"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_author_img15",
+        "label": "blog author image"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_title15",
+        "label": "blog_author name"
+      },
+      {
+        "type": "text",
+        "id": "blog_author_tag15",
+        "label": "blog_author tag"
+      },
+      {
+        "type": "text",
+        "id": "author_post15",
+        "label": "Post author"
+      },
+      {
+        "type": "richtext",
+        "id": "description15",
+        "label": "Author description"
+      }
+    ]
+  },
