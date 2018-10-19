@@ -1,0 +1,88 @@
+# show blog and add in            {%include 'blog-author-all-page'%}  for show author
+
+
+{% paginate blog.articles by 4 %}
+
+<div class="container">
+  <div class="row"> 
+    {% if section.settings.blog_title != blank %}
+    <div class="block-header col-sm-12 text-left">
+     <h6 class="chnage-text block-tittle-1" style="display:none">FILTERED BLOGS </h6>
+      <h6 class="chnage-text block-tittle">{{ section.settings.blog_title }}</h6>
+    </div>
+    {% endif %}
+  </div>
+<div class="custom-filter">
+  <div class="row resource-right"> 
+    <div class="tag_name-title"></div>
+    {% for article in blog.articles %}
+    <div class="col-sm-6">
+      <div class="blocks">        
+        <div class="img" style="background-image:url({{ article.image.src | img_url: '600x600' }});">
+          {% if article.image %}
+          <a href="{{article.url}}"> <img src="{{ article.image.src | img_url: '600x600' }}" /></a>
+          {% endif %}
+        </div>
+       
+     
+        <div class="text">
+          <a href="{{article.url}}"> <h4>{{ article.title | truncatewords: 5, '' }}</h4></a>
+          <div class="date-and-author">
+          {%include 'blog-author-all-page'%} 
+          {% if section.settings.blog_show_date %}
+          <span class="article__date">
+            {{ article.published_at | time_tag: format: 'month_day_year' }}
+          </span>
+          {% endif %}
+        </div>
+          <div class="rte">
+            {% if article.content %}            
+            {{ article.content | strip_html | truncate: 90 }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="clr"></div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+</div>
+{% endpaginate %}
+
+{% schema %}
+{
+"name": {
+"en": "Blog pages"
+},
+"class": "howwedoit blog-loop",
+"settings": [
+{
+"type": "text",
+"id": "blog_title",
+"label": "Heading",
+"default": "Blog Posts"
+},
+{
+"type": "checkbox",
+"id": "blog_show_author",
+"label":"Show author",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "blog_show_date",
+"label":"Show date",
+"default": true
+}
+]
+}
+{% endschema %}
