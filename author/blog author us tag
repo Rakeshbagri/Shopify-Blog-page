@@ -1,0 +1,205 @@
+/* create snippet  blog-author-all-page.liquid  */
+ create general setting use auther-setting file
+
+
+{% assign ttop1 = settings.blog_author_tag1 %}
+      {% assign ttop2 = settings.blog_author_tag2 %}
+      {% assign ttop3 = settings.blog_author_tag3 %}
+      {% assign ttop4 = settings.blog_author_tag4 %}
+      {% assign ttop5 = settings.blog_author_tag5 %}
+      {% assign ttop6 = settings.blog_author_tag6 %}
+      {% assign ttop7 = settings.blog_author_tag7 %}
+      {% assign ttop8 = settings.blog_author_tag8 %}
+      {% assign ttop9 = settings.blog_author_tag9 %}
+      {% assign ttop10 = settings.blog_author_tag10 %}
+      {% assign ttop11 = settings.blog_author_tag11 %}
+      {% assign ttop12 = settings.blog_author_tag12 %}
+      {% assign ttop13 = settings.blog_author_tag13 %}
+      {% assign ttop14 = settings.blog_author_tag14 %}
+      {% assign ttop15 = settings.blog_author_tag15 %}
+     <div class="auther">
+        {%for article in article.tags%}        
+        {%if article contains ttop1  %}        
+       {% if settings.blog_author_img1 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img1 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title1 !=blank%}
+          By: <b> {{settings.blog_author_title1}}</b>
+          {%endif%}                
+        
+        {%elsif article contains ttop2%}                    
+         {% if settings.blog_author_img2 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img2 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title2 !=blank%}
+            By: <b> {{settings.blog_author_title2}}</b>
+          {%endif%}          
+        
+
+        {%elsif article contains ttop3%}
+         {% if settings.blog_author_img3 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img3 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title3 !=blank%}
+          By: <b> {{settings.blog_author_title3}}</b>
+          {%endif%}         
+        
+        {%elsif article contains ttop4%}                   
+         {% if settings.blog_author_img4 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img4 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title4 !=blank%}
+          By: <b> {{settings.blog_author_title4}}</b>
+          {%endif%}         
+        
+        
+        {%elsif article contains ttop5%}                 
+        {% if settings.blog_author_img5 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img5 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title5 !=blank%}
+          By: <b>{{settings.blog_author_title5}}</b>
+          {%endif%}                   
+       
+
+        {%elsif article contains ttop6%}        
+        {% if settings.blog_author_img6 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img6 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title6 !=blank%}
+          By: <b> {{settings.blog_author_title6}}</b>
+          {%endif%}  
+       
+       {%elsif article contains ttop7%}        
+        {% if settings.blog_author_img7 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img7 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title7 !=blank%}
+          By: <b> {{settings.blog_author_title7}}</b>
+          {%endif%} 
+       
+       {%elsif article contains ttop8%}        
+        {% if settings.blog_author_img8 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img8 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title8 !=blank%}
+          By: <b> {{settings.blog_author_title8}}</b>
+          {%endif%} 
+       {%elsif article contains ttop9%}        
+        {% if settings.blog_author_img9 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img9 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title9 !=blank%}
+          By: <b> {{settings.blog_author_title9}}</b>
+          {%endif%} 
+       
+       {%elsif article contains ttop10%}        
+        {% if settings.blog_author_img10 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img10 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title10 !=blank%}
+          By: <b> {{settings.blog_author_title10}}</b>
+          {%endif%} 
+       
+       {%elsif article contains ttop11%}        
+        {% if settings.blog_author_img11 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img11 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title11 !=blank%}
+          By: <b> {{settings.blog_author_title11}}</b>
+          {%endif%} 
+       {%elsif article contains ttop12%}        
+        {% if settings.blog_author_img12 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img12 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title12 !=blank%}
+          By: <b> {{settings.blog_author_title12}}</b>
+          {%endif%} 
+       
+       {%elsif article contains ttop13%}        
+        {% if settings.blog_author_img13 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img13 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title13 !=blank%}
+          By: <b> {{settings.blog_author_title13}}</b>
+          {%endif%} 
+       
+       {%elsif article contains ttop14%}        
+        {% if settings.blog_author_img14 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img14 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title14 !=blank%}
+          By: <b> {{settings.blog_author_title14}}</b>
+          {%endif%} 
+       
+       {%elsif article contains ttop15%}        
+        {% if settings.blog_author_img15 != blank %}  
+       <div class="avtr-img-blog-page">        
+         <div class="round squre">
+           <img src="{{settings.blog_author_img15 | img_url: '300x300'}}">
+         </div>            
+       </div>
+       {%endif%}
+          {%if settings.blog_author_title15 !=blank%}
+          By: <b> {{settings.blog_author_title15}}</b>
+          {%endif%} 
+       
+        {%endif%}
+        {%endfor%}
+      </div>
