@@ -1,0 +1,303 @@
+<div class="blog-header">
+  <img src="{{ article.image.src | img_url: '1600x' }}" class="main-img"> 
+  <span class="back-btn" onclick="goBack()"> <i class="fal fa-angle-left"></i> Back </span>
+  <div class="tittle-block">
+    <div class="blog-tittle">
+      <div class="container">
+        <div class="tittle-colle">
+          <h1>    {{ article.title }} </h1>
+           
+          {% for tag in article.tags %}
+          	{% assign tags = tag %}
+          {% endfor %}
+          {% if article.image.src != blank %}
+          <div class="single-img-article"> 	
+            {% for tags in article.tags %}
+            {% if tags contains 'vimeo-' %}
+            {% assign vimeo = tags | split : '-' %}
+            <div class="window_content full-height-vedio v-center">
+              <div class="logo-img text-center top-center">	
+                {% include 'icon-play' %}
+              </div>
+              <iframe class="hide" src="https://player.vimeo.com/video/{{ vimeo[1] }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>  	
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 order-2 order-sm-1 article-left">
+      <div class="article-in">
+        <div class="inspired-auther">
+          {% for block in section.blocks %}
+            {% for tag1 in article.tags %}
+            {% assign tags1 = block.settings.tagName %}
+              {% if tag1 contains tags1 %}
+                {% if block.settings.image != blank %}
+                	<img src="{{ block.settings.image | img_url: '200x' }}">
+                {% endif %}
+                {% if block.settings.title != blank %}
+                	<h5>{{ block.settings.title }}</h5>
+                {% endif %}
+                {% if block.settings.author_text != blank %}
+                	<p>{{ block.settings.author_text }}</p>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}      
+        </div>
+        <div class="article-tags">
+          <h4>TAGS</h4>
+          <ul>
+            {% for t in article.tags %}
+              {% if t contains 'feature_' %}
+              	<li>{{t | remove:'feature_'}}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% if section.settings.show_share_buttons %}
+        <div class="article-sahre">
+          <h4>SHARE</h4>
+          {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+        </div>
+        {% endif %} 
+        
+        
+        <div class="newsletter">          
+          {% include 'article_news_single' %}          
+        </div>
+        
+        {% if customer  %}
+        {% else %}
+        {% if section.settings.display_blog_banner %}
+
+        <!--     <div class="blog_register">
+<div class="blog-register-img">
+
+{% if section.settings.blog_banner_image  != blank %}
+<img class="" src="{{ section.settings.blog_banner_image | img_url: '1024x1024' }}">
+{% else %}
+{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+{% endif %}
+</div>
+<div class="blog-banner-container v-center">
+<p class="blog-banner-title">
+{% if settings.enable_multilang %}
+<span class="lang1">{{ section.settings.blog_banner_title | split: '|' | first }}</span>
+<span class="lang2">{{  section.settings.blog_banner_title | split: '|' | last }}</span>
+{% else %}
+{{  section.settings.blog_banner_title | split: '|' | first }}
+{% endif %}
+</p>
+<a class="btn-round" href="{{ section.settings.blog_banner_link }}">{{ section.settings.blog_banner_textlink }} </a>
+</div>
+</div> -->
+        {% endif %}
+        {% endif %}
+        <div class="container">
+          {% assign cat = blog.handle %}
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Releated Articles</h4>
+            </div>
+          </div>
+          <div class="releated-articles slider-ver">
+            {% for article in blogs[cat].articles limit:3 %}
+              <div class="items">
+                <div class="feature-box-hover">
+                  <div class="feature-box">
+                    <div class="feature-box-icon">
+                      {% for tag in article.tags %}
+                      {% assign tags = tag %}
+                      {% endfor %}
+                      {% if article.image.src != blank %}
+                      <div class="res-video" style=" background-image:url({{ article.image.src | img_url: '500x' }})"> </div>
+                      {% elsif tags contains 'vimeo_' %}
+                      <div class="res-video">    <iframe src="https://player.vimeo.com/video/{{ tags | remove: 'vimeo_' }}" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe> </div>
+                      {% endif %}	
+                    </div>
+                    <div class="feature-box-info">
+                      <div class="article-t">  <a href="{{ article.url }}">  {{ article.title }}  </a></div>  
+                      <span class="dates"> {{ article.published_at | time_tag: format: 'month_day_year' }} </span>
+                    </div> </div>
+                </div>
+              </div> 
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 article-right order-1 order-sm-2">
+      <div class="a-block-1">
+        {% for tag in article.tags %}
+          {% if tag contains 'readtime_' %}
+          	<span class="min10"> <i class="fal fa-clock"></i>  {{ tag | remove : 'readtime_' }} READING </span>
+          {% endif %}
+        {% endfor %}
+        {% if section.settings.blog_show_date %}
+          <span class="article__date">
+            {{ article.published_at | time_tag: format: 'month_day_year' }}
+          </span>
+        {% endif %}
+        {% if section.settings.blog_show_author %}
+        	<span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+        {% endif %}
+      </div>
+      <div class="article-rte">
+        {{ article.content }}
+      </div>  
+    </div>
+  </div>
+</div>
+
+
+<span class="btn-6 bottom-back" onclick="goBack()"> <span class="z-1"> <i class="fal fa-angle-left"></i> Back </span> </span>
+
+
+<script>
+  $(document).ready(function() {
+  // slick carousel
+  $('.slider-ver').slick({
+    dots: false,
+    vertical: true,
+    //infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    verticalSwiping: false,
+    responsive: [
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    }
+  ]
+  });
+});
+  
+</script>
+<script>
+function goBack() {
+    window.history.go(-1);
+}
+</script>
+{% schema %}
+{
+  "name": "Posts",
+"class": "single-blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "featured_product",
+      "label": "All Blog Tags"
+    },
+	{
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show social sharing buttons",
+      "default": true
+    },
+	{
+        "type": "header",
+        "content": "Banner Sidebar Blog"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_blog_banner",
+        "label": "Show Banner Blog ?"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_banner_image",
+        "label": "Banner Images Blog"
+      },
+      {
+        "type": "text",
+        "id": "blog_banner_title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_banner_link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "blog_banner_textlink",
+        "label": "Text Link"
+      },
+	  {
+        "type": "header",
+        "content": "Inspired Authors"
+      }	
+  ],
+"blocks": [
+        {
+          "type": "block",
+          "name": "Block",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Inspired Authors Image"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Inspired Authors Name"
+            },
+            {
+              "type": "text",
+              "id": "tagName",
+              "label": "Inspired Authors Tag"
+            },
+			{
+              "type": "textarea",
+              "id": "author_text",
+              "label": "Author text"
+            }
+         ]
+      }
+	]
+}
+{% endschema %}
+
+
+
+https://voight-fitness.myshopify.com/blogs/wellbeing/benefits-of-boxing
