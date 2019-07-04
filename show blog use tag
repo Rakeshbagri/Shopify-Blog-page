@@ -1,0 +1,23 @@
+<div class="row">  
+  {% for article in blogs['wellbeing'].articles %}
+    {% if article.tags contains 'blogTop1' or article.tags contains 'blogTop2' or article.tags contains 'blogTop3' %}
+      <div class="col-sm-6 col-md-4 blog-grid">
+        <div class="relative">
+          <div class="image squre-img">
+            <img src="{{ article.image.src | img_url: '370x370' }}" alt="{{ article.image.alt }}">          
+          </div>
+          <div class="blog-content">
+            <div class="head">
+              <h6>
+                <a href="{{ article.url }}"> 
+                  <div> {{ article.title }} </div>
+                  <span> READ MORE </span>
+                </a>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
