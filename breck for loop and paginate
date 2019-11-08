@@ -1,0 +1,289 @@
+# how to show first blog large and other all small with in inner pages
+
+https://joovv.com/blogs/joovv-blog 
+https://www.solbasium.com/blogs/news
+
+<div class="template-blog" data-section-id="{{ section.id }}">
+
+ {% if section.settings.blog_layout == 'columns' %}
+    {%- assign pagination_count = 6 -%}
+  {% else %}
+    {%- assign pagination_count = 4 -%}
+  {% endif %}
+  {% if section.blocks.size > 0 %}
+    {%- assign enable_sidebar = true -%}
+  {% else %}
+    {%- assign enable_sidebar = false -%}
+  {% endif %}
+
+  {% paginate blog.articles by pagination_count %}
+
+    <div class="blog-header">
+        {% if section.settings.show_title %}
+        {% if current_tags %}
+        <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
+        {% else %}
+        <h1>{{ blog.title }}</h1>
+        {% endif %}
+        <p class="subhead">{{section.settings.show_text}}</p>
+        {% endif %}
+    </div>
+
+  {% if current_page == 1 %}
+   {% for article in blog.articles %}
+        {% if forloop.index == 1  %}
+        <div class="featured-article">
+            <div class="wrapper">
+                <div class="article">
+                    <div class="article-image">
+                        {%- assign image = article.image -%}
+                        <a href="{{ blog.url }}" class="article-image" 
+                            style="background-image: url({{ image | img_url : '' }})"></a>
+                    </div>
+                    <div class="article-content">
+                        <h3>{{ article.title }}</h3>
+                        {% if article.excerpt.size > 0 %}
+                        <p>{{ article.excerpt }}</p>
+                        <a href="{{ article.url }}" title="Read article The Question That Changed This Pro Sport Doctor's Life" class="link">{{ 'blogs.article.read_more' | t }}<i class="fas fa-arrow-right"></i></a>
+                        {% else %}
+                        <p>{{ article.content }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+  {% endfor %}
+  
+  <div class="blog-articles">
+        <div class="wrapper">
+            <div class="articles-container">
+                {% for article in blog.articles %}
+                    {% if forloop.index > 1  %}
+                    <div class="column">
+                        <div class="article">
+                            {%- assign image = article.image -%}
+                            <a href="{{ blog.url }}" class="article-image" 
+                                style="background-image: url({{ image | img_url : '' }})"></a>
+                            <div class="article-body">
+                                <h3>{{ article.title }}</h3>
+                                {% if article.excerpt.size > 0 %}
+                                <p>{{ article.excerpt }}</p>
+                                <a href="{{ article.url }}" title="Read article The Question That Changed This Pro Sport Doctor's Life" class="link">{{ 'blogs.article.read_more' | t }}<i class="fas fa-arrow-right"></i></a>
+                                {% else %}
+                                <p>{{ article.content }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %} 
+            </div>
+
+        </div>
+    </div>
+    
+  
+{% else %}
+    <div class="blog-articles">
+        <div class="wrapper">
+            <div class="articles-container">
+                {% for article in blog.articles %}
+                    <div class="column">
+                        <div class="article">
+                            {%- assign image = article.image -%}
+                            <a href="{{ blog.url }}" class="article-image" 
+                                style="background-image: url({{ image | img_url : '' }})"></a>
+                            <div class="article-body">
+                                <h3>{{ article.title }}</h3>
+                                {% if article.excerpt.size > 0 %}
+                                <p>{{ article.excerpt }}</p>
+                                <a href="{{ article.url }}" title="Read article The Question That Changed This Pro Sport Doctor's Life" class="link">{{ 'blogs.article.read_more' | t }}<i class="fas fa-arrow-right"></i></a>
+                                {% else %}
+                                <p>{{ article.content }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} 
+            </div>
+
+        </div>
+    </div>
+  
+  {% endif %}
+            {% if paginate.pages > 1 %}
+            <footer class="collection-footer">
+              {% include 'pagination' %}
+            </footer>
+            {% endif %}
+
+      {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Blog page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show blog title",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "show_text",
+      "label": "text under title"
+    },
+    {
+      "type": "select",
+      "id": "blog_layout",
+      "label": "Layout",
+      "options": [
+        { "value": "column", "label": "Single column" },
+        { "value": "columns", "label": "Two columns" },
+        { "value": "featured-columns", "label": "Featured two columns" }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "radio",
+      "id": "show_image_first",
+      "label": "Article image placement",
+      "options": [
+        { "value": "before", "label": "Before title" },
+        { "value": "after", "label": "After title" }
+      ],
+      "default": "after"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "center_title",
+      "label": "Center article title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "label": "Show comment count",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Sidebar image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Image link",
+          "info": "Optional"
+        }
+      ]
+    },
+    {
+      "type": "recent_posts",
+      "name": "Sidebar recent posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Recent Posts"
+        },
+        {
+          "type": "range",
+          "id": "article_count_range",
+          "label": "Number of posts to show",
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "default": 3
+        },
+        {
+          "type": "checkbox",
+          "id": "show_date",
+          "label": "Show date",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Sidebar menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "linklist",
+          "label": "Menu",
+          "default": "main-menu"
+        }
+      ]
+    },
+    {
+      "type": "tags",
+      "name": "Sidebar tags",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Blog categories"
+        }
+      ]
+    },
+    {
+      "type": "rss",
+      "name": "Sidebar rss",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link label",
+          "default": "RSS Feed"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "name": "Sidebar html",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "html",
+          "id": "code",
+          "label": "HTML"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
